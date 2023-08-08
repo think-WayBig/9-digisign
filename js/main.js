@@ -258,7 +258,7 @@ function upload_passport() {
     }).catch(console.error);
 }
 
-function submit1() {
+async function submit1() {
     let mail = document.getElementById('mail');
     let phone = document.getElementById('phone');
     if (mail.value == "" || phone.value == "" || aadharLink == "" || panLink == "" || passportLink == "") {
@@ -267,15 +267,14 @@ function submit1() {
     }
 
     document.getElementById("submit_btn").disabled = true;
-    emailjs.send("service_kv9rdth", "template_rffcqgr", {
+    await emailjs.send("service_kv9rdth", "template_rffcqgr", {
         mail: mail.value,
         phone: phone.value,
         aadhar: aadharLink,
         pan: panLink,
         passport: passportLink
     })
-        .then((res) => {
-            alert("Thank you! We will contact you soon!");
-            window.href = "../index.html";
-        });
+
+    alert("Thank you! We will contact you soon!");
+    location.href = "../index.html";
 }
