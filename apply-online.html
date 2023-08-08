@@ -101,11 +101,11 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav">
                         <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="about.html" class="nav-item nav-link active">About</a>
                         <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                         <a href="apply-online.html" class="nav-item nav-link">Apply Online</a>
-                        <a href="blog.html" class="nav-item nav-link active">More about Services</a>
+                        <a href="blog.html" class="nav-item nav-link">More about Services</a>
                         <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
                             <div class="dropdown-menu bg-light rounded-0 rounded-bottom m-0">
@@ -131,11 +131,11 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
-            <h1 class="display-2 text-white mb-4 animated slideInDown">Types of DSC's</h1>
+            <h1 class="display-2 text-white mb-4 animated slideInDown">Apply for Digital Signature</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item text-primary" aria-current="page">Types of DSC's</li>
+                    <li class="breadcrumb-item text-primary" aria-current="page">Apply Now</li>
                 </ol>
             </nav>
         </div>
@@ -143,25 +143,80 @@
     <!-- Page Header End -->
 
 
-    <!-- types Start -->
-    <section id="types">
-        <div class="container-xxl pt-5">
+    <!-- About Start -->
+    <section id="about">
+        <div style="padding-top: 15px;" class="container-xxl about my-5">
             <div class="container">
-                <div class="text-center text-md-start pb-5 pb-md-0 wow fadeInUp" data-wow-delay="0.1s"
-                    style="max-width: 500px;">
-                    <p class="fs-5 fw-medium text-primary">Coming Soon</p>
-                    <h1 class="display-5 mb-5">Official Digisign Blospot</h1>
+                <div style="flex-direction: row-reverse;" class="row g-0">
+                    <div class="col-lg-8 pt-lg-5 wow fadeIn" data-wow-delay="0.5s">
+                        <div style="background-color: rgba(444, 444, 444, 0.8);backdrop-filter: blur(5px);" class="rounded-top p-5 mt-lg-5">
+                            <p class="fs-5 fw-medium text-primary">Fill your details here</p>
+                            <h1 class="display-6 mb-4">Apply for Digital Signature Remotely</h1>
+                            <!-- <p class="mb-4">Now you can apply for Digital Signatures from anywhere at anytime.</p> -->
+                            <div class="row g-5 pt-2 mb-5">
+                                <div class="col-sm-5">
+                                    <input style="padding: 2px 5px;width: 100%;" type="text" id="mail" placeholder="Your Email ID">
+                                </div>
+                                <div class="col-sm-7">
+                                    <input style="padding: 2px 5px;width: 100%;margin-bottom: 5px;" type="text" id="phone" placeholder="Aadhar linked Phone No.">
+                                    <span style="font-size: 15px;">If Aadhar is not yet linked then any mob number.</span>
+                                </div>
+                            </div>
+                            <div class="row g-5 pt-2 mb-5">
+                                <div class="col-sm-5">
+                                    <h5 style="font-size: 19px;margin-bottom: 10px;">Upload Aadhar Card</h5>
+                                    <label class="file-upload" id="file-upload1">
+                                        <!-- <i class="fa fa-arrow-up-from-bracket"></i> -->
+                                        <input type="file" id="aadhar" onchange="upload_aadhar()">
+                                    </label>
+                                    <label id="file-name1"></label>
+                                </div>
+                                <div class="col-sm-7">
+                                    <h5 style="font-size: 19px;margin-bottom: 10px;">Upload Pan Card</h5>
+                                    <label class="file-upload" id="file-upload2">
+                                        <input type="file" id="pan" onchange="upload_pan()">
+                                    </label>
+                                    <label id="file-name2"></label>
+                                </div>
+                            </div>
+                            <div class="row g-5 pt-2 mb-5">
+                                <div class="col-sm-9">
+                                    <h5 style="font-size: 19px;margin-bottom: 10px;">Upload Passport Size Photograph</h5>
+                                    <label class="file-upload" id="file-upload3">
+                                        <input type="file" id="passport" onchange="upload_passport()">
+                                    </label>
+                                    <label id="file-name3"></label>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary rounded-pill py-3 px-5" id="submit_btn" onclick="submit1()">Submit</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center text-md-start pb-5 pb-md-0 wow fadeInUp" data-wow-delay="0.5s">
-                    <p style="font-size: 18px;">We will soon notify our audience when we roll out this feature. Till then you can explore our
-                        other pages from the navbar or the quick links section from the footer.</p>
-                </div>
-                <a href="./index.html" class="btn btn-primary mt-3 py-2 px-3">Home</a>
             </div>
         </div>
     </section>
-    <!-- types End -->
+    <!-- About End -->
 
+    <!-- Video Modal Start -->
+    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Youtube Video</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
+                            allowscriptaccess="always" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
@@ -241,18 +296,51 @@
     <a href="wa.me/+9198767-87172" class="back-to-top" style="display: none;">
         <img src="img/official-digisign-wa.webp" alt="Digisign-Whatsapp">
 
+    <!-- Email JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("J24zDK8Av9DrDaNsp");
+        })();
+    </script>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyCE5UoWp-0UXgQvNhQmajw-vtOkJBaRaHU",
+            authDomain: "official-digisign.firebaseapp.com",
+            projectId: "official-digisign",
+            storageBucket: "official-digisign.appspot.com",
+            messagingSenderId: "418547978394",
+            appId: "1:418547978394:web:f00a561d55528e1e754f23",
+            measurementId: "G-E4K80S6Y7K"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+	</script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>

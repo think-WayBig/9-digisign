@@ -203,3 +203,79 @@ function contactUs() {
             });
     }, 2000);
 }
+
+let aadharLink = "";
+let panLink = "";
+let passportLink = "";
+function upload_aadhar() {
+    const ref = firebase.storage().ref("apply/");
+    const file = document.querySelector('#aadhar').files[0];
+    document.getElementById("file-name1").innerHTML = file.name;
+    const name = (+new Date()) + '-' + Math.random().toString()  + document.getElementById("file-name1").innerHTML;
+    const metadata = {
+        contentType: file.type
+    };
+    const task = ref.child(name).put(file, metadata);
+
+    document.getElementById("file-upload1").innerHTML = "Please Wait <i class='fa fa-spinner spinner'></i>";
+    task.then(async snapshot => {
+        aadharLink = await ref.child(name).getDownloadURL();
+        document.getElementById("file-upload1").innerHTML = "File Uploaded!!";
+    }).catch(console.error);
+}
+
+function upload_pan() {
+    const ref = firebase.storage().ref("apply/");
+    const file = document.querySelector('#pan').files[0];
+    document.getElementById("file-name2").innerHTML = file.name;
+    const name = (+new Date()) + '-' + Math.random().toString() + document.getElementById("file-name2").innerHTML;
+    const metadata = {
+        contentType: file.type
+    };
+    const task = ref.child(name).put(file, metadata);
+
+    document.getElementById("file-upload2").innerHTML = "Please Wait <i class='fa fa-spinner spinner'></i>";
+    task.then(async snapshot => {
+        panLink = await ref.child(name).getDownloadURL();
+        document.getElementById("file-upload2").innerHTML = "File Uploaded!!";
+    }).catch(console.error);
+}
+
+function upload_passport() {
+    const ref = firebase.storage().ref("apply/");
+    const file = document.querySelector('#passport').files[0];
+    document.getElementById("file-name3").innerHTML = file.name;
+    const name = (+new Date()) + '-' + Math.random().toString() + document.getElementById("file-name3").innerHTML;
+    const metadata = {
+        contentType: file.type
+    };
+    const task = ref.child(name).put(file, metadata);
+
+    document.getElementById("file-upload3").innerHTML = "Please Wait <i class='fa fa-spinner spinner'></i>";
+    task.then(async snapshot => {
+        passportLink = await ref.child(name).getDownloadURL();
+        document.getElementById("file-upload3").innerHTML = "File Uploaded!!";
+    }).catch(console.error);
+}
+
+function submit1() {
+    let mail = document.getElementById('mail');
+    let phone = document.getElementById('phone');
+    if (mail.value == "" || phone.value == "" || aadharLink == "" || panLink == "" || passportLink == "") {
+        alert("Please Enter all the information");
+        return;
+    }
+
+    document.getElementById("submit_btn").disabled = true;
+    emailjs.send("service_kv9rdth", "template_rffcqgr", {
+        mail: mail.value,
+        phone: phone.value,
+        aadhar: aadharLink,
+        pan: panLink,
+        passport: passportLink
+    })
+        .then((res) => {
+            alert("Thank you! We will contact you soon!");
+            window.href = "../index.html";
+        });
+}
